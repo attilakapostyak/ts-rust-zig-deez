@@ -48,17 +48,17 @@ var
     expectedTokens: array of Token = (
      (Token_Type: TokenType.Let; Literal: 'let'),
      (Token_Type: TokenType.Ident; Literal: 'five'),
-     (Token_Type: TokenType.Equal; Literal: '='),
+     (Token_Type: TokenType.Assign; Literal: '='),
      (Token_Type: TokenType.Int; Literal: '5'),
      (Token_Type: TokenType.Semicolon; Literal: ';'),
      (Token_Type: TokenType.Let; Literal: 'let'),
      (Token_Type: TokenType.Ident; Literal: 'ten'),
-     (Token_Type: TokenType.Equal; Literal: '='),
+     (Token_Type: TokenType.Assign; Literal: '='),
      (Token_Type: TokenType.Int; Literal: '10'),
      (Token_Type: TokenType.Semicolon; Literal: ';'),
      (Token_Type: TokenType.Let; Literal: 'let'),
      (Token_Type: TokenType.Ident; Literal: 'add'),
-     (Token_Type: TokenType.Equal; Literal: '='),
+     (Token_Type: TokenType.Assign; Literal: '='),
      (Token_Type: TokenType.FunctionType; Literal: 'fn'),
      (Token_Type: TokenType.LParen; Literal: '('),
      (Token_Type: TokenType.Ident; Literal: 'x'),
@@ -74,13 +74,50 @@ var
      (Token_Type: TokenType.Semicolon; Literal: ';'),
      (Token_Type: TokenType.Let; Literal: 'let'),
      (Token_Type: TokenType.Ident; Literal: 'result'),
-     (Token_Type: TokenType.Equal; Literal: '='),
+     (Token_Type: TokenType.Assign; Literal: '='),
      (Token_Type: TokenType.Ident; Literal: 'add'),
      (Token_Type: TokenType.LParen; Literal: '('),
      (Token_Type: TokenType.Ident; Literal: 'five'),
      (Token_Type: TokenType.Comma; Literal: ','),
      (Token_Type: TokenType.Ident; Literal: 'ten'),
      (Token_Type: TokenType.RParen; Literal: ')'),
+     (Token_Type: TokenType.Semicolon; Literal: ';'),
+     (Token_Type: TokenType.Bang; Literal: '!'),
+     (Token_Type: TokenType.Minus; Literal: '-'),
+     (Token_Type: TokenType.Slash; Literal: '/'),
+     (Token_Type: TokenType.Asterisk; Literal: '*'),
+     (Token_Type: TokenType.Int; Literal: '5'),
+     (Token_Type: TokenType.Semicolon; Literal: ';'),
+     (Token_Type: TokenType.Int; Literal: '5'),
+     (Token_Type: TokenType.LT; Literal: '<'),
+     (Token_Type: TokenType.Int; Literal: '10'),
+     (Token_Type: TokenType.GT; Literal: '>'),
+     (Token_Type: TokenType.Int; Literal: '5'),
+     (Token_Type: TokenType.Semicolon; Literal: ';'),
+     (Token_Type: TokenType.IfType; Literal: 'if'),
+     (Token_Type: TokenType.LParen; Literal: '('),
+     (Token_Type: TokenType.Int; Literal: '5'),
+     (Token_Type: TokenType.LT; Literal: '<'),
+     (Token_Type: TokenType.Int; Literal: '10'),
+     (Token_Type: TokenType.RParen; Literal: ')'),
+     (Token_Type: TokenType.LSquirly; Literal: '{'),
+     (Token_Type: TokenType.Return; Literal: 'return'),
+     (Token_Type: TokenType.True; Literal: 'true'),
+     (Token_Type: TokenType.Semicolon; Literal: ';'),
+     (Token_Type: TokenType.RSquirly; Literal: '}'),
+     (Token_Type: TokenType.ElseType; Literal: 'else'),
+     (Token_Type: TokenType.LSquirly; Literal: '{'),
+     (Token_Type: TokenType.Return; Literal: 'return'),
+     (Token_Type: TokenType.False; Literal: 'false'),
+     (Token_Type: TokenType.Semicolon; Literal: ';'),
+     (Token_Type: TokenType.RSquirly; Literal: '}'),
+     (Token_Type: TokenType.Int; Literal: '10'),
+     (Token_Type: TokenType.EQ; Literal: '=='),
+     (Token_Type: TokenType.Int; Literal: '10'),
+     (Token_Type: TokenType.Semicolon; Literal: ';'),
+     (Token_Type: TokenType.Int; Literal: '10'),
+     (Token_Type: TokenType.Not_EQ; Literal: '!='),
+     (Token_Type: TokenType.Int; Literal: '9'),
      (Token_Type: TokenType.Semicolon; Literal: ';'),
      (Token_Type: TokenType.Eof; Literal: '')
      );
@@ -90,11 +127,20 @@ var
      cliteral: string;
 begin
      code:= 'let five = 5;' + LineEnding +
-            'let ten = 10;' + LineEnding +
-            'let add = fn(x, y) {' + LineEnding +
-            '    x + y;' + LineEnding +
-            '};' + LineEnding +
-            'let result = add(five, ten);' + LineEnding;
+     'let ten = 10;' + LineEnding +
+     'let add = fn(x, y) {' + LineEnding +
+     '    x + y;' + LineEnding +
+     '};' + LineEnding +
+     'let result = add(five, ten);' + LineEnding +
+     '!-/*5;' + LineEnding +
+     '5 < 10 > 5;' + LineEnding +
+     'if (5 < 10) {' + LineEnding +
+     '   return true;' + LineEnding +
+     '} else {' + LineEnding +
+     '  return false;' + LineEnding +
+     '}' + LineEnding +
+     '10 == 10;' + LineEnding +
+     '10 != 9;';
 
      lex := Lexer.Create(code);
 

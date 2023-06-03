@@ -8,7 +8,10 @@ uses
   Classes, SysUtils, fgl;
 
 type
-    TokenType = (Illegal, Eof, Ident, Int, Equal, Plus, Comma, Semicolon, LParen, RParen, LSquirly, RSquirly, FunctionType, Let);
+    TokenType = (Illegal, Eof, Ident, Int, Equal, Comma, Semicolon,
+                LParen, RParen, LSquirly, RSquirly, FunctionType, Let, Assign,
+                Plus, Minus, Bang, Asterisk, Slash, LT, GT,
+                True, False, IfType, ElseType, Return, EQ, Not_EQ);
 
     Token = record
         Token_Type: TokenType;
@@ -27,6 +30,7 @@ type
 
         constructor Create(InputCode: String);
         procedure ReadChar();
+        function PeekChar(): char;
         function CreateToken(Token_Type: TokenType; Literal: string): Token;
         function LookupIdent(ident: string): TokenType;
         function GetNextToken(): Token;
@@ -44,6 +48,11 @@ begin
     Keywords:= TKeywords.Create();
     Keywords.Add('fn', TokenType.FunctionType);
     Keywords.Add('let', TokenType.Let);
+    Keywords.Add('true', TokenType.True);
+    Keywords.Add('false', TokenType.False);
+    Keywords.Add('if', TokenType.IfType);
+    Keywords.Add('else', TokenType.ElseType);
+    Keywords.Add('return', TokenType.Return);
 
     self.Input := InputCode;
     self.InputLength := Length(InputCode);
@@ -61,6 +70,20 @@ begin
         self.Ch := self.Input[self.ReadPosition + 1];
     self.Position := self.ReadPosition;
     Inc(self.ReadPosition);
+end;
+
+function Lexer.PeekChar(): char;
+begin
+    if self.ReadPosition + 1 >= self.InputLength then
+      begin
+          Result:= char(0);
+          exit;
+      end
+    else
+      begin
+          Result:= self.Input[self.ReadPosition + 1];
+          exit;
+      end;
 end;
 
 function Lexer.CreateToken(Token_Type: TokenType; Literal: string): Token;
@@ -106,15 +129,44 @@ var
     indent: String;
 begin
     self.SkipWhitespace();
-
-    if Ch = '=' then tok := CreateToken(Equal, '=') else
-    if Ch = '+' then tok := CreateToken(Plus, '+') else
     if Ch = ',' then tok := CreateToken(Comma, ',') else
     if Ch = ';' then tok := CreateToken(Semicolon, ';') else
     if Ch = '(' then tok := CreateToken(LParen, '(') else
     if Ch = ')' then tok := CreateToken(RParen, ')') else
     if Ch = '{' then tok := CreateToken(LSquirly, '{') else
     if Ch = '}' then tok := CreateToken(RSquirly, '}') else
+    if Ch = '+' then tok := CreateToken(Plus, '+') else
+    if Ch = '-' then tok := CreateToken(Minus, '-') else
+    if Ch = '*' then tok := CreateToken(Asterisk, '*') else
+    if Ch = '/' then tok := CreateToken(Slash, '/') else
+    if Ch = '<' then tok := CreateToken(LT, '<') else
+    if Ch = '>' then tok := CreateToken(GT, '>') else
+    if Ch = '=' then
+    begin
+        if self.PeekChar() = '=' then
+        begin
+            Self.ReadChar();
+            tok := CreateToken(EQ, '==')
+        end
+        else
+        begin
+            tok := CreateToken(ASSIGN, '=')
+        end
+    end
+    else
+    if Ch = '!' then
+    begin
+        if self.PeekChar() = '=' then
+        begin
+            Self.ReadChar();
+            tok := CreateToken(Not_EQ, '!=')
+        end
+        else
+        begin
+            tok := CreateToken(Bang, '!')
+        end
+    end
+    else
     if Ch = #0 then tok := CreateToken(Eof, '') else
     if (IsAlpha(Ch)) then
     begin
