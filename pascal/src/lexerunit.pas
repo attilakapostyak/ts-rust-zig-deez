@@ -30,10 +30,7 @@ type
 
         constructor Create(InputCode: String);
         procedure ReadChar();
-<<<<<<< HEAD
         function PeekChar(): char;
-=======
->>>>>>> d2866b8 (Implement keyword fn and let)
         function CreateToken(Token_Type: TokenType; Literal: string): Token;
         function LookupIdent(ident: string): TokenType;
         function GetNextToken(): Token;
@@ -51,14 +48,11 @@ begin
     Keywords:= TKeywords.Create();
     Keywords.Add('fn', TokenType.FunctionType);
     Keywords.Add('let', TokenType.Let);
-<<<<<<< HEAD
     Keywords.Add('true', TokenType.True);
     Keywords.Add('false', TokenType.False);
     Keywords.Add('if', TokenType.IfType);
     Keywords.Add('else', TokenType.ElseType);
     Keywords.Add('return', TokenType.Return);
-=======
->>>>>>> d2866b8 (Implement keyword fn and let)
 
     self.Input := InputCode;
     self.InputLength := Length(InputCode);
@@ -78,7 +72,6 @@ begin
     Inc(self.ReadPosition);
 end;
 
-<<<<<<< HEAD
 function Lexer.PeekChar(): char;
 begin
     if self.ReadPosition + 1 >= self.InputLength then
@@ -93,8 +86,6 @@ begin
       end;
 end;
 
-=======
->>>>>>> d2866b8 (Implement keyword fn and let)
 function Lexer.CreateToken(Token_Type: TokenType; Literal: string): Token;
 var
     tok: Token;
@@ -144,7 +135,6 @@ begin
     if Ch = ')' then tok := CreateToken(RParen, ')') else
     if Ch = '{' then tok := CreateToken(LSquirly, '{') else
     if Ch = '}' then tok := CreateToken(RSquirly, '}') else
-<<<<<<< HEAD
     if Ch = '+' then tok := CreateToken(Plus, '+') else
     if Ch = '-' then tok := CreateToken(Minus, '-') else
     if Ch = '*' then tok := CreateToken(Asterisk, '*') else
@@ -177,8 +167,6 @@ begin
         end
     end
     else
-=======
->>>>>>> d2866b8 (Implement keyword fn and let)
     if Ch = #0 then tok := CreateToken(Eof, '') else
     if (IsAlpha(Ch)) then
     begin
