@@ -9,23 +9,72 @@
         <Filename Value="Lexer.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LexerProgram"/>
+<<<<<<< HEAD
         <CursorPos X="30" Y="7"/>
         <UsageCount Value="28"/>
+=======
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="30" Y="7"/>
+        <UsageCount Value="27"/>
+>>>>>>> d2866b8 (Implement keyword fn and let)
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="lexerunit.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="LexerUnit"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
+<<<<<<< HEAD
         <TopLine Value="60"/>
         <CursorPos X="21" Y="77"/>
         <UsageCount Value="28"/>
+=======
+        <TopLine Value="112"/>
+        <CursorPos X="51" Y="125"/>
+        <UsageCount Value="27"/>
+>>>>>>> d2866b8 (Implement keyword fn and let)
         <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
+<<<<<<< HEAD
+=======
+      <Position>
+        <Filename Value="Lexer.lpr"/>
+        <Caret Line="15" Column="14" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="Lexer.lpr"/>
+        <Caret Line="148" Column="78" TopLine="134"/>
+      </Position>
+      <Position>
+        <Filename Value="Lexer.lpr"/>
+        <Caret Line="16" Column="21"/>
+      </Position>
+      <Position>
+        <Filename Value="Lexer.lpr"/>
+        <Caret Line="25" Column="86" TopLine="13"/>
+      </Position>
+      <Position>
+        <Filename Value="Lexer.lpr"/>
+        <Caret Line="17" Column="11"/>
+      </Position>
+      <Position>
+        <Filename Value="Lexer.lpr"/>
+        <Caret Line="123" Column="54" TopLine="95"/>
+      </Position>
+      <Position>
+        <Filename Value="Lexer.lpr"/>
+      </Position>
+      <Position>
+        <Filename Value="Lexer.lpr"/>
+        <Caret Line="115" Column="58" TopLine="95"/>
+      </Position>
+      <Position>
+        <Filename Value="Lexer.lpr"/>
+        <Caret Line="17" Column="22"/>
+      </Position>
+>>>>>>> d2866b8 (Implement keyword fn and let)
       <Position>
         <Filename Value="Lexer.lpr"/>
         <Caret Line="31" Column="95" TopLine="18"/>
@@ -110,6 +159,7 @@
         <Filename Value="lexerunit.pas"/>
         <Caret Line="66" Column="16" TopLine="40"/>
       </Position>
+<<<<<<< HEAD
       <Position>
         <Filename Value="lexerunit.pas"/>
         <Caret Line="107" Column="30" TopLine="93"/>
@@ -146,6 +196,8 @@
         <Filename Value="lexerunit.pas"/>
         <Caret Line="77" Column="55" TopLine="60"/>
       </Position>
+=======
+>>>>>>> d2866b8 (Implement keyword fn and let)
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

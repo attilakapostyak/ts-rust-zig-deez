@@ -48,17 +48,29 @@ var
     expectedTokens: array of Token = (
      (Token_Type: TokenType.Let; Literal: 'let'),
      (Token_Type: TokenType.Ident; Literal: 'five'),
+<<<<<<< HEAD
      (Token_Type: TokenType.Assign; Literal: '='),
+=======
+     (Token_Type: TokenType.Equal; Literal: '='),
+>>>>>>> d2866b8 (Implement keyword fn and let)
      (Token_Type: TokenType.Int; Literal: '5'),
      (Token_Type: TokenType.Semicolon; Literal: ';'),
      (Token_Type: TokenType.Let; Literal: 'let'),
      (Token_Type: TokenType.Ident; Literal: 'ten'),
+<<<<<<< HEAD
      (Token_Type: TokenType.Assign; Literal: '='),
+=======
+     (Token_Type: TokenType.Equal; Literal: '='),
+>>>>>>> d2866b8 (Implement keyword fn and let)
      (Token_Type: TokenType.Int; Literal: '10'),
      (Token_Type: TokenType.Semicolon; Literal: ';'),
      (Token_Type: TokenType.Let; Literal: 'let'),
      (Token_Type: TokenType.Ident; Literal: 'add'),
+<<<<<<< HEAD
      (Token_Type: TokenType.Assign; Literal: '='),
+=======
+     (Token_Type: TokenType.Equal; Literal: '='),
+>>>>>>> d2866b8 (Implement keyword fn and let)
      (Token_Type: TokenType.FunctionType; Literal: 'fn'),
      (Token_Type: TokenType.LParen; Literal: '('),
      (Token_Type: TokenType.Ident; Literal: 'x'),
@@ -74,7 +86,11 @@ var
      (Token_Type: TokenType.Semicolon; Literal: ';'),
      (Token_Type: TokenType.Let; Literal: 'let'),
      (Token_Type: TokenType.Ident; Literal: 'result'),
+<<<<<<< HEAD
      (Token_Type: TokenType.Assign; Literal: '='),
+=======
+     (Token_Type: TokenType.Equal; Literal: '='),
+>>>>>>> d2866b8 (Implement keyword fn and let)
      (Token_Type: TokenType.Ident; Literal: 'add'),
      (Token_Type: TokenType.LParen; Literal: '('),
      (Token_Type: TokenType.Ident; Literal: 'five'),
@@ -82,6 +98,7 @@ var
      (Token_Type: TokenType.Ident; Literal: 'ten'),
      (Token_Type: TokenType.RParen; Literal: ')'),
      (Token_Type: TokenType.Semicolon; Literal: ';'),
+<<<<<<< HEAD
      (Token_Type: TokenType.Bang; Literal: '!'),
      (Token_Type: TokenType.Minus; Literal: '-'),
      (Token_Type: TokenType.Slash; Literal: '/'),
@@ -119,6 +136,8 @@ var
      (Token_Type: TokenType.Not_EQ; Literal: '!='),
      (Token_Type: TokenType.Int; Literal: '9'),
      (Token_Type: TokenType.Semicolon; Literal: ';'),
+=======
+>>>>>>> d2866b8 (Implement keyword fn and let)
      (Token_Type: TokenType.Eof; Literal: '')
      );
      index: integer;
@@ -127,6 +146,7 @@ var
      cliteral: string;
 begin
      code:= 'let five = 5;' + LineEnding +
+<<<<<<< HEAD
      'let ten = 10;' + LineEnding +
      'let add = fn(x, y) {' + LineEnding +
      '    x + y;' + LineEnding +
@@ -141,6 +161,13 @@ begin
      '}' + LineEnding +
      '10 == 10;' + LineEnding +
      '10 != 9;';
+=======
+            'let ten = 10;' + LineEnding +
+            'let add = fn(x, y) {' + LineEnding +
+            '    x + y;' + LineEnding +
+            '};' + LineEnding +
+            'let result = add(five, ten);' + LineEnding;
+>>>>>>> d2866b8 (Implement keyword fn and let)
 
      lex := Lexer.Create(code);
 
